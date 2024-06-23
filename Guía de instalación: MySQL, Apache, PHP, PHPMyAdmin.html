@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 24.2.3.2 (Linux)"/>
+	<meta name="created" content="2024-06-22T23:42:43.086860239"/>
+	<meta name="changed" content="2024-06-22T23:58:14.211542208"/>
+	<style type="text/css">
+		@page { size: 21cm 29.7cm; margin: 2cm }
+		p { line-height: 115%; margin-bottom: 0.25cm; background: transparent }
+		h2 { margin-top: 0.35cm; margin-bottom: 0.21cm; background: transparent; page-break-after: avoid }
+		h2.western { font-family: "Liberation Sans", sans-serif; font-size: 16pt; font-weight: bold }
+		h2.cjk { font-family: "Noto Sans CJK SC"; font-size: 16pt; font-weight: bold }
+		h2.ctl { font-family: "Noto Sans Devanagari"; font-size: 16pt; font-weight: bold }
+		a:link { color: #000080; text-decoration: underline }
+	</style>
+</head>
+<body lang="es-ES" link="#000080" vlink="#800000" dir="ltr"><p align="center" style="line-height: 100%; margin-top: 0.42cm; margin-bottom: 0.21cm; page-break-after: avoid">
+<font face="Liberation Sans, sans-serif"><font size="6" style="font-size: 28pt"><b>Guía
+de instalación: MySQL, Apache, PHP, PHPMyAdmin</b></font></font></p>
+<p align="right"><font color="#000000"><font face="Calibri, sans-serif"><font size="2" style="font-size: 10pt">by:
+<a href="https://github.com/asuna-yuukiuwu">asuna-yuukiuwu</a></font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font color="#c9211e"><font face="Calibri, sans-serif"><b>!!!
+Es importante llevar este orden para evitar futuros errores de
+configuración al momento de ejecutarlo.</b></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">-----------------------------------------------------------------------------------------------</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif"><font size="3" style="font-size: 13pt"><b>*
+Pasos para instalar el servidor &quot;Apache&quot;:</b></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"> <font face="Calibri, sans-serif">Abrimos
+nuestra terminal  y ejecutamos:</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	<font face="monospace"><span style="background: #e0c2cd">$
+sudo apt update</span></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="monospace">	<span style="background: #e0c2cd">$
+sudo apt upgrade</span></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">Esto
+se hace con el fin de actualizar los paquetes y que no cause
+problemas a la hora de instalar los programas.</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">-
+Ya que tenemos todos los paquetes actualizados, ejecutamos:</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	<font face="monospace"><span style="background: #e0c2cd">$
+sudo apt install apache2</span></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	(contestan
+con &quot;s&quot; a continuar y aprietan la tecla enter)</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">-
+Para verificar que tenemos instalado el servidor, nos dirigimos a
+nuestro navegador y en la barra de direcciones escriben:</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	<font face="monospace"><span style="background: #e0c2cd">http://localhost/</span></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">Al
+buscarlo, debería de arrojar la información acerca de &quot;Apache2&quot;
+con el mensaje: &quot;It works!&quot;.</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font color="#c9211e"><font face="Calibri, sans-serif"><i><b>!!!
+Para solucionar problemas de permisos con la carpeta &quot;html&quot;:</b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">Esta
+carpeta es la que se crea automáticamente al instalar el servidor
+Apache, y es donde alojaremos nuestros proyectos.</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">Pero,
+esta viene con los permisos restringidos, por lo que no podemos ni
+crear, editar o eliminar archivos. Es por ello, que debemos de
+solucionar estos problemas de permisos con los siguientes comandos:</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">-
+Abrimos terminal en la ubicación de la carpeta &quot;www&quot;
+llendo a esa carpeta, presionando click derecho y en “abrir en una
+terminal”.</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">-
+Estando en la terminal, debe de tener la siguiente ubicación: </font>
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	<font face="monospace"><span style="background: #e0c2cd">nombre@nombre:~/var/www$</span></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">-
+Escribimos los siguientes comandos:</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	<font face="monospace"><span style="background: #e0c2cd">$
+sudo chmod 777 html/</span></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">Con
+este comando resolvemos el problema de permisos en la carpeta &quot;html&quot;,
+para que puedamos crear, editar y eliminar libremente archivos. :)</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">-----------------------------------------------------------------------------------------------</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif"><font size="4" style="font-size: 14pt"><b>*
+Pasos para instalar el servidor de base de datos &quot;MySQL&quot;:</b></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">-
+Abrimos nuestra terminal y ejecutamos:</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	<font face="monospace"><span style="background: #e0c2cd">$
+sudo apt install mysql-server</span></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	(contestan
+con &quot;s&quot; a continuar y aprietan la tecla enter)</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">Por
+el momento, solo ejecutamos este comando y continuamos con &quot;PHP&quot;.</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">-----------------------------------------------------------------------------------------------</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif"><font size="3" style="font-size: 13pt"><b>*
+Pasos para instalar &quot;PHP&quot;:</b></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">-
+En nuestra terminal ejecutamos:</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	<font face="monospace"><span style="background: #e0c2cd">$
+sudo apt install php</span></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	(contestan
+con &quot;s&quot; a continuar y aprietan la tecla enter)</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">Por
+el momento, solo ejecutamos este comando y continuamos con
+&quot;PHPMyAdmin&quot;.</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">-----------------------------------------------------------------------------------------------</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif"><font size="3" style="font-size: 13pt"><b>*
+Pasos para instalar &quot;PHPMyAdmin&quot;:</b></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">-
+En nuestra terminal ejecutamos:</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	<font face="monospace"><span style="background: #e0c2cd">$
+sudo apt install phpmyadmin</span></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	(contestan
+con &quot;s&quot; a continuar y aprietan la tecla enter)</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">Les
+va a arrojar la opción del servidor a usar. Para ello seleccionarán
+&quot;apache2&quot; apretando la tecla de espacio. Este debería de
+marcar un * en la opción: </font>
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	<font face="monospace"><span style="background: #e0c2cd">[*]
+apache2</span></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	<font face="monospace"><span style="background: #e0c2cd">[
+] lighttpd</span></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">Y
+le dan &quot;aceptar&quot;.</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">-
+Posterior a ello (después de que cargue un rato) les aparecerá que
+se debe de tener una base de datos ya instalada y configurada. Solo
+den en &quot;aceptar&quot;.</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">Preguntará
+si desean configurar la base de datos. Solo den en &quot;Si&quot;.</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">-
+Les pedirá que configuren una contraseña para &quot;phpmyadmin&quot;.
+Mi recomendación es que pongan algo corto para que no se les olvide.</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">Una
+vez que terminan de confirmar la contraseña, seguirá el proceso
+hasta que termine la instalación.</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">-----------------------------------------------------------------------------------------------</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font color="#c9211e"><font face="Calibri, sans-serif"><i><b>!!!
+Obteniendo permisos poder crear bases de datos:</b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">-
+Abrimos nuestra terminal y ejecutamos:</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	<font face="monospace"><span style="background: #e0c2cd">$
+sudo -i</span></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">De
+esa manera entramos al usuario &quot;<font face="monospace">root</font>&quot;.
+Debe de aparecer de la siguiente manera: <font face="monospace"><b>root@nombre:~#</b></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">-
+Una vez en root, ejecutamos:</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	<font face="monospace"><span style="background: #e0c2cd">mysql
+-u root -p</span></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">Solicitará
+la contraseña que hayan creado anteriormente en &quot;phpmyadmin&quot;.</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">-
+Una vez entren a &quot;<font face="monospace">mysql&gt;</font>&quot;,
+ejecutan los siguientes comandos:</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	<font face="monospace"><span style="background: #e0c2cd">create
+user 'nombredelusuario'@'%' identified by 'contraseña'</span></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	(aprietan
+enter)</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">Explicación:	'nombredelusuario'
+-&gt; cambiarlo al nombre de usuario que desean tener.</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">		'contraseña'
+-&gt; poner la contraseña que se creó para phpmyadmin</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">-
+Ahora, se le dará al usuario que acaban de crear todos los
+privilegios para que pueda crear bases de datos:</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	<font face="monospace"><span style="background: #e0c2cd">grant
+all privileges on *.* to 'nombredelusuario'@'%' with</span></font><font face="monospace">
+	</font><font face="monospace"><span style="background: #e0c2cd">grant
+option;</span></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	(aprietan
+enter)</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">-
+Y para finalizar:</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	<font face="monospace"><span style="background: #e0c2cd">flush
+privileges</span></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	(aprietan
+enter)</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">Para
+verificar que todo esté correcto, ingresen al navegador y en la
+barra de direcciones escriben:</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	<font face="monospace"><span style="background: #e0c2cd">http://localhost/phpmyadmin</span></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	(escriben
+el usuario que crearon y la contraseña)</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">Posteriormente
+se dirigen al apartado de &quot;Bases de datos&quot;. Si todo salió
+bien, no debería de arrojar ni un error al ingresar al apartado. :)</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">Ahora,
+iniciamos con la instalación de &quot;MySQL Workbench&quot;.</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">-----------------------------------------------------------------------------------------------</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif"><font size="3" style="font-size: 13pt"><b>*
+Pasos para instalar &quot;MySQL Workbench&quot;:</b></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">-
+Abrimos la terminal y ejecutamos:</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	<font face="monospace"><span style="background: #e0c2cd">sudo
+snap install mysql-workbench-community</span></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	(contestan
+con &quot;s&quot; a continuar y aprietan la tecla enter)</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">Con
+esto, ya deberíamos tener en nuestras aplicaciones &quot;MySQL
+Workbench&quot;.</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">Al
+abrirlo, ya debería estar creada una conexión llamada &quot;<font face="monospace">Local
+instance 3306</font>&quot;, pero tendremos un problema al querer
+abrirlo, ya que el usuario por defecto es &quot;<font face="monospace">root</font>&quot;.
+Haremos lo siguiente:</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">-
+Para ello, ubicamos donde dice &quot;MySQL Connection&quot; y a un
+lado de ello, habrán dos botones: un signo de &quot;+&quot; y otro
+de un herramienta. </font>
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">-
+Seleccionamos el de herramienta y se nos abrirá una pestaña en
+donde solo cambiaremos el &quot;username&quot; al que creamos para
+phpmyadmin.</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">-
+En &quot;password&quot; solo apretamos en &quot;clear&quot; y
+cerramos la ventana en &quot;close&quot;.</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">Con
+esto, ya deberíamos poder ingresar a la instancia local ya creada
+con la contraseña que creamos en &quot;phpmyadmin&quot;.</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">¡Y
+listo! Ya tenemos configurado nuestro MySQL Workbench, Apache y
+PHPMyAdmin. :)</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">Espero
+te haya servido, traté de ser lo más precisa y clara posible.
+Igualmente te dejo las URL de los videos que consulté y las páginas
+que visité.</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">Practicamente
+fue un resumen de todo lo que ví, aplicando lo que sí me sirvió de
+cada una (porque no todo me sirvió y estuve en tortura varios días
+xc).</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">¡Éxito!
+c:</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">-----------------------------------------------------------------------------------------------</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">More</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">|</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">|</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">|</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">|</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">|</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">|</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">v</font></p>
+<h2 class="western">URL's</h2>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif"><b>Páginas:</b></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif"><a href="https://platzi.com/tutoriales/1566-bd/8226-como-instalar-mysql-y-workbench-en-ubuntu-sin-morir-en-el-intento/">https://platzi.com/tutoriales/1566-bd/8226-como-instalar-mysql-y-workbench-en-ubuntu-sin-morir-en-el-intento/</a>
+</font>
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">	</font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif"><b>Videos
+en YT:</b></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">1.
+Instalar APACHE2 - PHP - MYSQL - PHPMYADMIN en UBUNTU 22.04 desde
+cero - <a href="https://youtu.be/yxiOaaiE_QY?si=QLvZ9cjivY0rorrw">https://youtu.be/yxiOaaiE_QY?si=QLvZ9cjivY0rorrw</a>
+</font>
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">2.
+Configurar la carpeta htdocs de xampp en linux ubuntu | xampp php
+linux (para los permisos) -
+<a href="https://youtu.be/M-oHlFDcmQY?si=1DPmJPN4QjAXzOSU">https://youtu.be/M-oHlFDcmQY?si=1DPmJPN4QjAXzOSU</a>
+</font>
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font face="Calibri, sans-serif">3.
+🔴 Cómo INSTALAR MySQL WORKBENCH en Linux UBUNTU 🐬 -
+<a href="https://youtu.be/IvQjEl7bIXA?si=MNiYgB_XE83uxhhC">https://youtu.be/IvQjEl7bIXA?si=MNiYgB_XE83uxhhC</a>
+</font>
+</p>
+</body>
+</html>
